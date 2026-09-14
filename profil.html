@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mon profil - JASONBOT</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+
+  <style>
+    .fidelity-card {
+      position: relative;
+      max-width: 520px;
+      margin: 25px auto;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(
+        145deg,
+        #071936,
+        #0b2b61
+      );
+      color: white;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .fidelity-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(24, 131, 255, .18);
+    }
+
+    .fidelity-top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .fidelity-top h2 {
+      margin: 0 0 5px;
+      font-size: 21px;
+    }
+
+    .fidelity-top p {
+      margin: 0;
+      opacity: .75;
+      font-size: 13px;
+    }
+
+    #fidelityPhoto {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #1683ff;
+      background: #102b52;
+    }
+
+    .fidelity-name {
+      margin-top: 25px;
+      font-size: 18px;
+    }
+
+    .code-label {
+      margin-top: 22px;
+      font-size: 13px;
+      opacity: .7;
+    }
+
+    #fidelityCode {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #55b1ff;
+    }
+
+    .fidelity-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .fidelity-stat {
+      padding: 15px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .fidelity-stat span {
+      display: block;
+      font-size: 12px;
+      opacity: .65;
+      margin-bottom: 5px;
+    }
+
+    .fidelity-stat strong {
+      font-size: 20px;
+    }
+
+    .qr-area {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 17px;
+      background: white;
+      color: #071936;
+      text-align: center;
+    }
+
+    #fidelityQR {
+      display: block;
+      width: 210px;
+      height: 210px;
+      max-width: 100%;
+      margin: 0 auto 12px;
+      object-fit: contain;
+    }
+
+    .qr-area p {
+      margin: 0;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .profile-info {
+      max-width: 520px;
+      margin: 20px auto;
+    }
+
+    .profile-info .card {
+      border-radius: 20px;
+    }
+
+    .btn-copy {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border: 0;
+      border-radius: 10px;
+      background: #1683ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-copy:active {
+      transform: scale(.98);
+    }
+
+    @media (max-width: 500px) {
+
+      .dashboard {
+        padding: 15px;
+      }
+
+      .fidelity-card {
+        padding: 19px;
+      }
+
+      #fidelityCode {
+        font-size: 17px;
+      }
+
+      #fidelityQR {
+        width: 190px;
+        height: 190px;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+  <div class="logo">
+    JASON<span>BOT</span>
+  </div>
+
+  <a href="dash.html">
+    Dashboard
+  </a>
+
+  <a href="shop.html">
+    Services
+  </a>
+
+  <a href="profil.html" class="active">
+    Profil
+  </a>
+
+  <a href="vip.html">
+    VIP
+  </a>
+
+  <a href="support.html">
+    Support
+  </a>
+
+</header>
+
+
+<main class="dashboard">
+
+  <div class="welcome">
+
+    <p>
+      Mon compte
+    </p>
+
+    <h1>
+      Profil 👤
+    </h1>
+
+  </div>
+
+
+  <!-- ==============================
+       CARTE JASON FIDELITY
+  =============================== -->
+
+  <section class="fidelity-card">
+
+    <div class="fidelity-top">
+
+      <div>
+
+        <h2>
+          ⭐ JASON FIDELITY
+        </h2>
+
+        <p>
+          Carte de fidélité officielle
+        </p>
+
+      </div>
+
+
+      <img
+        id="fidelityPhoto"
+        src=""
+        alt="Photo du client"
+      >
+
+    </div>
+
+
+    <div class="fidelity-name">
+
+      👤
+
+      <strong id="fidelityName">
+        Client JASONBOT
+      </strong>
+
+    </div>
+
+
+    <div class="code-label">
+      Mon code fidélité
+    </div>
+
+
+    <div id="fidelityCode">
+      JASON-XXXXXX
+    </div>
+
+
+    <button
+      type="button"
+      class="btn-copy"
+      id="copyCode"
+    >
+      📋 Copier mon code
+    </button>
+
+
+    <div class="fidelity-stats">
+
+      <div class="fidelity-stat">
+
+        <span>
+          ⭐ Mes points
+        </span>
+
+        <strong id="fidelityPoints">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="fidelity-stat">
+
+        <span>
+          👥 Parrainages
+        </span>
+
+        <strong id="referralCount">
+          0
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- QR CODE -->
+
+    <div class="qr-area">
+
+      <img
+        id="fidelityQR"
+        src=""
+        alt="QR Code de fidélité"
+      >
+
+      <p>
+        📷 Fais scanner ce QR Code
+        pour partager ton code JASONBOT.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==============================
+       INFORMATIONS DU COMPTE
+  =============================== -->
+
+  <div class="profile-info">
+
+    <section class="card">
+
+      <h2>
+        Informations du compte
+      </h2>
+
+      <p id="profileEmail">
+        E-mail : —
+      </p>
+
+      <p id="profilePhone">
+        Téléphone : —
+      </p>
+
+      <p id="profileBalance">
+        Solde : 0 FC
+      </p>
+
+      <p id="profileVip">
+        VIP : Bronze
+      </p>
+
+      <br>
+
+      <button
+        class="btn primary"
+        id="logout"
+        type="button"
+      >
+        Se déconnecter
+      </button>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<script src="profil.js"></script>
+
+</body>
+
+</html>

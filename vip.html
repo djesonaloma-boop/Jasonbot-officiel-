@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VIP — JASONBOT AI</title>
+
+  <link rel="stylesheet" href="vip.css">
+</head>
+
+<body>
+
+  <header class="vip-header">
+
+    <a href="dash.html" class="back-button">
+      ←
+    </a>
+
+    <div class="header-title">
+      <span>👑</span>
+
+      <div>
+        <h1>JASONBOT VIP</h1>
+        <p>Jason Fidelity</p>
+      </div>
+    </div>
+
+    <button
+      id="notificationButton"
+      class="notification-button"
+      type="button"
+    >
+      🔔
+    </button>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="vip-hero">
+
+      <div class="hero-icon">
+        👑
+      </div>
+
+      <span class="hero-badge">
+        JASON FIDELITY
+      </span>
+
+      <h2>
+        Passe au niveau supérieur
+      </h2>
+
+      <p>
+        Choisis ton niveau VIP et profite
+        d'avantages exclusifs sur JASONBOT AI.
+      </p>
+
+    </section>
+
+
+    <!-- COMPTE -->
+
+    <section class="account-card">
+
+      <div class="account-item">
+
+        <span>💰</span>
+
+        <div>
+          <small>Solde</small>
+
+          <strong id="userBalance">
+            0 FC
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="account-divider"></div>
+
+
+      <div class="account-item">
+
+        <span>⭐</span>
+
+        <div>
+          <small>Points</small>
+
+          <strong id="userPoints">
+            0
+          </strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VIP -->
+
+    <section class="vip-section">
+
+      <div class="section-heading">
+
+        <h2>
+          Nos niveaux VIP
+        </h2>
+
+        <p>
+          Sélectionne l'offre qui te convient.
+        </p>
+
+      </div>
+
+
+      <div class="vip-grid">
+
+
+        <!-- BRONZE -->
+
+        <article
+          class="vip-card bronze"
+          data-vip="bronze"
+          data-price="5000"
+        >
+
+          <div class="vip-icon">
+            🥉
+          </div>
+
+          <span class="vip-level">
+            NIVEAU 1
+          </span>
+
+          <h3>
+            VIP Bronze
+          </h3>
+
+          <div class="vip-price">
+            5 000 FC
+          </div>
+
+          <p>
+            Une première expérience VIP
+            avec des avantages essentiels.
+          </p>
+
+          <ul>
+
+            <li>✓ Accès VIP Bronze</li>
+            <li>✓ Offres réservées</li>
+            <li>✓ Bonus fidélité</li>
+            <li>✓ Priorité standard</li>
+
+          </ul>
+
+          <button
+            class="choose-vip"
+            data-vip="bronze"
+            type="button"
+          >
+            Choisir Bronze
+          </button>
+
+        </article>
+
+
+        <!-- ARGENT -->
+
+        <article
+          class="vip-card silver featured"
+          data-vip="silver"
+          data-price="10000"
+        >
+
+          <div class="popular">
+            ⭐ POPULAIRE
+          </div>
+
+          <div class="vip-icon">
+            🥈
+          </div>
+
+          <span class="vip-level">
+            NIVEAU 2
+          </span>
+
+          <h3>
+            VIP Argent
+          </h3>
+
+          <div class="vip-price">
+            10 000 FC
+          </div>
+
+          <p>
+            Plus d'avantages et une meilleure
+            expérience JASONBOT.
+          </p>
+
+          <ul>
+
+            <li>✓ Tous les avantages Bronze</li>
+            <li>✓ Bonus fidélité amélioré</li>
+            <li>✓ Priorité renforcée</li>
+            <li>✓ Offres spéciales</li>
+
+          </ul>
+
+          <button
+            class="choose-vip"
+            data-vip="silver"
+            type="button"
+          >
+            Choisir Argent
+          </button>
+
+        </article>
+
+
+        <!-- OR -->
+
+        <article
+          class="vip-card gold"
+          data-vip="gold"
+          data-price="20000"
+        >
+
+          <div class="vip-icon">
+            🥇
+          </div>
+
+          <span class="vip-level">
+            NIVEAU 3
+          </span>
+
+          <h3>
+            VIP Or
+          </h3>
+
+          <div class="vip-price">
+            20 000 FC
+          </div>
+
+          <p>
+            Une expérience premium pour
+            les utilisateurs réguliers.
+          </p>
+
+          <ul>
+
+            <li>✓ Tous les avantages Argent</li>
+            <li>✓ Bonus fidélité premium</li>
+            <li>✓ Priorité élevée</li>
+            <li>✓ Offres VIP exclusives</li>
+
+          </ul>
+
+          <button
+            class="choose-vip"
+            data-vip="gold"
+            type="button"
+          >
+            Choisir Or
+          </button>
+
+        </article>
+
+
+        <!-- DIAMANT -->
+
+        <article
+          class="vip-card diamond"
+          data-vip="diamond"
+          data-price="50000"
+        >
+
+          <div class="vip-icon">
+            💎
+          </div>
+
+          <span class="vip-level">
+            NIVEAU 4
+          </span>
+
+          <h3>
+            VIP Diamant
+          </h3>
+
+          <div class="vip-price">
+            50 000 FC
+          </div>
+
+          <p>
+            Le niveau VIP ultime de
+            JASONBOT AI.
+          </p>
+
+          <ul>
+
+            <li>✓ Tous les avantages VIP</li>
+            <li>✓ Bonus fidélité maximal</li>
+            <li>✓ Priorité maximale</li>
+            <li>✓ Offres exclusives</li>
+            <li>✓ Expérience premium</li>
+
+          </ul>
+
+          <button
+            class="choose-vip"
+            data-vip="diamond"
+            type="button"
+          >
+            Choisir Diamant
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- FIDELITE -->
+
+    <section class="fidelity-card">
+
+      <div class="fidelity-icon">
+        ⭐
+      </div>
+
+      <div>
+
+        <span>
+          JASON FIDELITY
+        </span>
+
+        <h2>
+          Tes points ont de la valeur
+        </h2>
+
+        <p>
+          100 points = 1 000 FC selon
+          les règles de fidélité.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMATIONS -->
+
+    <section class="info-card">
+
+      <h3>
+        ℹ️ Comment devenir VIP ?
+      </h3>
+
+      <p>
+        1️⃣ Choisis ton niveau VIP.
+      </p>
+
+      <p>
+        2️⃣ Vérifie ton solde.
+      </p>
+
+      <p>
+        3️⃣ Confirme ta demande.
+      </p>
+
+      <p>
+        4️⃣ Ton abonnement sera enregistré.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- MODAL -->
+
+  <div
+    id="vipModal"
+    class="modal hidden"
+  >
+
+    <div
+      id="vipModalOverlay"
+      class="modal-overlay"
+    ></div>
+
+    <div class="modal-box">
+
+      <button
+        id="closeVipModal"
+        class="modal-close"
+        type="button"
+      >
+        ×
+      </button>
+
+      <div
+        id="selectedVipIcon"
+        class="modal-icon"
+      >
+        👑
+      </div>
+
+      <span>
+        ABONNEMENT VIP
+      </span>
+
+      <h2 id="selectedVipName">
+        VIP Bronze
+      </h2>
+
+      <strong id="selectedVipPrice">
+        5 000 FC
+      </strong>
+
+      <p id="selectedVipDescription">
+        Confirme ton abonnement VIP.
+      </p>
+
+      <div class="modal-balance">
+
+        <span>
+          Ton solde
+        </span>
+
+        <strong id="modalBalance">
+          0 FC
+        </strong>
+
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          id="cancelVip"
+          type="button"
+        >
+          Annuler
+        </button>
+
+        <button
+          id="confirmVip"
+          type="button"
+        >
+          Confirmer
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <script src="vip.js"></script>
+
+</body>
+</html>

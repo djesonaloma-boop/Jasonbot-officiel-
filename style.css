@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #06111f;
+  color: white;
+  min-height: 100vh;
+}
+
+.topbar {
+  min-height: 70px;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid #18314f;
+  background: #071522;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  margin-right: auto;
+}
+
+.logo span {
+  color: #2589ff;
+}
+
+.topbar a {
+  color: #b9c8d8;
+  text-decoration: none;
+}
+
+.topbar a:hover,
+.topbar .active {
+  color: #2589ff;
+}
+
+.hero {
+  text-align: center;
+  padding: 90px 20px 70px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid #20517e;
+  border-radius: 30px;
+  color: #55a9ff;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  line-height: 1.05;
+}
+
+.hero h1 span {
+  color: #2589ff;
+}
+
+.hero p {
+  color: #aebdcd;
+  max-width: 650px;
+  margin: 25px auto;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.primary {
+  background: #2589ff;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #31506d;
+  color: white;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px 80px;
+}
+
+.card {
+  background: #0b1b2c;
+  border: 1px solid #193550;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.card div {
+  font-size: 32px;
+}
+
+.card h3 {
+  margin: 15px 0 8px;
+}
+
+.card p {
+  color: #9eb0c2;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  border-top: 1px solid #18314f;
+  color: #8fa2b5;
+  line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+}

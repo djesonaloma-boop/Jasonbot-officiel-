@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Support - JASONBOT AI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #06111d;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topbar {
+      height: 65px;
+      background: #081726;
+      border-bottom: 1px solid #193550;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4da1ff;
+    }
+
+    .back {
+      color: #b9c8d8;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 35px 20px 50px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #102940;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #91a5b8;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #0b1b2c;
+      border: 1px solid #193550;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #91a5b8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #168c4b;
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20a95d;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      color: #b9c8d8;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: #081726;
+      color: white;
+      border: 1px solid #29435d;
+      border-radius: 10px;
+      padding: 13px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2589ff;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #2589ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #1478ec;
+    }
+
+    .tickets {
+      margin-top: 20px;
+    }
+
+    .ticket {
+      background: #081726;
+      border: 1px solid #193550;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 12px;
+    }
+
+    .ticket strong {
+      color: #4da1ff;
+    }
+
+    .ticket p {
+      margin: 8px 0;
+      color: #c4d1dd;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #263c50;
+      color: #c7d8e8;
+      font-size: 12px;
+    }
+
+    .success {
+      margin-top: 12px;
+      color: #65d99a;
+      min-height: 20px;
+    }
+
+    .empty {
+      color: #71869a;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo">JASONBOT AI</div>
+    <a href="dash.html" class="back">← Retour</a>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-icon">🛟</div>
+      <h1>Centre de support</h1>
+      <p>
+        Une question ou un problème ?
+        L'équipe JASONBOT est là pour vous aider.
+      </p>
+    </section>
+
+    <div class="grid">
+
+      <!-- WhatsApp -->
+      <section class="card">
+        <h2>💬 Support WhatsApp</h2>
+
+        <p>
+          Pour une réponse rapide, contacte directement
+          le support JASONBOT sur WhatsApp.
+        </p>
+
+        <a
+          id="whatsappLink"
+          class="whatsapp-btn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ouvrir WhatsApp
+        </a>
+      </section>
+
+      <!-- Formulaire -->
+      <section class="card">
+        <h2>📩 Envoyer une demande</h2>
+
+        <p>
+          Explique ton problème ou ta demande.
+          Ta demande sera enregistrée dans ton espace.
+        </p>
+
+        <form id="supportForm">
+
+          <label for="subject">Sujet</label>
+          <input
+            type="text"
+            id="subject"
+            placeholder="Ex : Problème avec ma commande"
+            required
+          >
+
+          <label for="message">Message</label>
+          <textarea
+            id="messageInput"
+            placeholder="Décris ton problème..."
+            required
+          ></textarea>
+
+          <button type="submit" class="submit-btn">
+            📤 Envoyer la demande
+          </button>
+
+          <div id="successMessage" class="success"></div>
+
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Historique -->
+    <section class="card tickets" style="margin-top:20px;">
+      <h2>📋 Mes demandes</h2>
+
+      <div id="ticketsList"></div>
+    </section>
+
+  </main>
+
+  <script src="support.js"></script>
+
+</body>
+</html>

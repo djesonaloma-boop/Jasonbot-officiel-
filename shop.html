@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>JASONBOT AI — Services</title>
+
+<!-- Icônes réseaux sociaux -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07111f;
+  color:#fff;
+  min-height:100vh;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 5%;
+  background:rgba(5,14,27,.95);
+  border-bottom:1px solid #19324d;
+  backdrop-filter:blur(15px);
+}
+
+.logo{
+  font-size:21px;
+  font-weight:900;
+  color:#42a5ff;
+}
+
+.logo span{
+  color:#fff;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+}
+
+.nav a{
+  color:#b9cbe0;
+  text-decoration:none;
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:13px;
+}
+
+.nav a:hover{
+  background:#102842;
+  color:#fff;
+}
+
+.hero{
+  padding:55px 5% 30px;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(0,130,255,.18),transparent 35%),
+    radial-gradient(circle at 80% 20%,rgba(0,220,255,.08),transparent 30%);
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,54px);
+  margin-bottom:12px;
+}
+
+.hero h1 span{
+  color:#38a8ff;
+}
+
+.hero p{
+  color:#9db1c7;
+  max-width:750px;
+  line-height:1.7;
+}
+
+.searchBox{
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  max-width:700px;
+}
+
+.searchBox input{
+  flex:1;
+  padding:15px;
+  background:#0d1b2c;
+  color:#fff;
+  border:1px solid #1e3854;
+  border-radius:14px;
+  outline:none;
+}
+
+.categories{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:20px 5%;
+}
+
+.category{
+  border:1px solid #23405e;
+  background:#0c1a2b;
+  color:#a9bdd3;
+  padding:10px 15px;
+  border-radius:30px;
+}
+
+.category.active,
+.category:hover{
+  background:#1685e8;
+  color:#fff;
+  border-color:#1685e8;
+}
+
+.container{
+  padding:10px 5% 50px;
+}
+
+.serviceGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:18px;
+}
+
+.serviceCard{
+  background:linear-gradient(145deg,#0d1d30,#091523);
+  border:1px solid #1a344f;
+  border-radius:20px;
+  padding:20px;
+  transition:.2s;
+}
+
+.serviceCard:hover{
+  transform:translateY(-4px);
+  border-color:#1685e8;
+}
+
+.serviceIcon{
+  width:52px;
+  height:52px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:#102b47;
+  color:#4eb0ff;
+  font-size:23px;
+  margin-bottom:15px;
+}
+
+.serviceCard h3{
+  margin-bottom:8px;
+}
+
+.serviceCard p{
+  color:#91a8bf;
+  font-size:14px;
+  line-height:1.5;
+  min-height:44px;
+}
+
+.price{
+  color:#45adff;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.openBtn{
+  width:100%;
+  border:0;
+  padding:12px;
+  border-radius:12px;
+  color:#fff;
+  background:#087de0;
+  font-weight:bold;
+}
+
+.openBtn:hover{
+  background:#1197ff;
+}
+
+.empty{
+  text-align:center;
+  color:#8298ae;
+  padding:50px 10px;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,.78);
+  overflow-y:auto;
+  padding:25px 12px;
+}
+
+.modal.show{
+  display:block;
+}
+
+.modalBox{
+  max-width:850px;
+  margin:auto;
+  background:#091827;
+  border:1px solid #21415f;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,.55);
+}
+
+.modalHeader{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #1c344c;
+}
+
+.close{
+  border:0;
+  background:#13273c;
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.modalContent{
+  padding:20px;
+}
+
+.formGroup{
+  margin-bottom:17px;
+}
+
+.formGroup label{
+  display:block;
+  margin-bottom:8px;
+  color:#d8e5f1;
+  font-weight:bold;
+  font-size:14px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  border:1px solid #24415d;
+  background:#0d1d2e;
+  color:#fff;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#168eea;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.dynamicGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+.help{
+  color:#7f96ad;
+  font-size:12px;
+  margin-top:6px;
+}
+
+.colorRow{
+  display:flex;
+  gap:12px;
+}
+
+.colorBox{
+  flex:1;
+}
+
+.colorBox input{
+  height:48px;
+  padding:4px;
+}
+
+/* SOCIAL */
+
+.socialBox{
+  background:linear-gradient(145deg,#0b1d31,#071421);
+  border:1px solid #21415d;
+  border-radius:18px;
+  padding:17px;
+  margin-bottom:18px;
+}
+
+.socialTitle{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:14px;
+}
+
+.socialTitle i{
+  color:#38a8ff;
+}
+
+.socialGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.socialCard{
+  border:1px solid #213d58;
+  background:#0c1b2c;
+  border-radius:15px;
+  padding:14px 8px;
+  color:#aebfd0;
+  text-align:center;
+  transition:.2s;
+}
+
+.socialCard i{
+  display:block;
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.socialCard small{
+  font-size:11px;
+}
+
+.socialCard.active{
+  background:#0c4f87;
+  border-color:#36aaff;
+  color:#fff;
+  box-shadow:0 0 0 2px rgba(54,170,255,.15);
+}
+
+.socialTypes{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.socialType{
+  padding:12px 5px;
+  border:1px solid #213d58;
+  background:#0c1b2c;
+  color:#b8cadb;
+  border-radius:12px;
+  font-size:12px;
+}
+
+.socialType.active{
+  background:#116aa8;
+  border-color:#43b2ff;
+  color:#fff;
+}
+
+.socialResult{
+  margin-top:15px;
+  background:#071421;
+  border:1px solid #193650;
+  border-radius:14px;
+  padding:15px;
+}
+
+.socialResultRow{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:7px 0;
+  color:#a6bad0;
+}
+
+.socialResultRow strong{
+  color:#fff;
+}
+
+.socialPrice{
+  margin-top:10px;
+  padding-top:12px;
+  border-top:1px solid #193650;
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+}
+
+.socialPrice strong{
+  color:#42afff;
+}
+
+.fileBox{
+  border:1px dashed #2a4b68;
+  padding:15px;
+  border-radius:14px;
+  background:#0b1928;
+}
+
+.summary{
+  background:#071421;
+  border:1px solid #1d3b56;
+  border-radius:16px;
+  padding:16px;
+  margin-top:18px;
+}
+
+.summary h3{
+  margin-bottom:10px;
+}
+
+.summary pre{
+  white-space:pre-wrap;
+  color:#9fb5ca;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.priceBox{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#0b2942;
+  border:1px solid #176ca3;
+  padding:18px;
+  border-radius:16px;
+  margin-top:18px;
+}
+
+.priceBox span{
+  color:#9eb6cc;
+}
+
+.priceBox strong{
+  font-size:24px;
+  color:#48b3ff;
+}
+
+.submitBtn{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(90deg,#087de0,#19a4ff);
+  color:#fff;
+  font-weight:900;
+}
+
+.aiBtn{
+  margin-top:8px;
+  border:1px solid #27567b;
+  background:#0d2338;
+  color:#61bcff;
+  padding:9px 12px;
+  border-radius:10px;
+}
+
+.notice{
+  padding:12px;
+  border-radius:12px;
+  background:#102337;
+  color:#91abc1;
+  font-size:12px;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+@media(max-width:650px){
+  .nav{
+    display:none;
+  }
+
+  .grid2,
+  .dynamicGrid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .socialGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .socialTypes{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .colorRow{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="logo">JASONBOT <span>AI</span></div>
+
+  <nav class="nav">
+    <a href="dash.html">Dashboard</a>
+    <a href="commandes.html">Commandes</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Services <span>JASONBOT AI</span></h1>
+  <p>
+    Crée ton projet avec un formulaire adapté à ton besoin.
+    Les champs inutiles restent cachés.
+  </p>
+
+  <div class="searchBox">
+    <input id="searchInput"
+           type="search"
+           placeholder="Rechercher un service...">
+  </div>
+</section>
+
+<div class="categories">
+  <button class="category active" data-category="all">Tous</button>
+  <button class="category" data-category="creation">Création</button>
+  <button class="category" data-category="ia">IA</button>
+  <button class="category" data-category="media">Média</button>
+  <button class="category" data-category="marketing">Marketing</button>
+  <button class="category" data-category="redaction">Rédaction</button>
+</div>
+
+<main class="container">
+  <div id="servicesGrid" class="serviceGrid"></div>
+  <div id="noResults" class="empty hidden">
+    Aucun service trouvé.
+  </div>
+</main>
+
+<!-- MODAL -->
+
+<div id="serviceModal" class="modal">
+  <div class="modalBox">
+
+    <div class="modalHeader">
+      <div>
+        <strong id="modalTitle">Commander</strong>
+        <div id="modalSubtitle" class="help"></div>
+      </div>
+
+      <button class="close" id="closeModal">×</button>
+    </div>
+
+    <div class="modalContent">
+
+      <input type="hidden" id="selectedServiceId">
+
+      <!-- NOM -->
+
+      <div class="formGroup">
+        <label for="projectName">Nom du projet</label>
+        <input id="projectName"
+               type="text"
+               placeholder="Ex : Ma chanson, mon affiche, mon application...">
+      </div>
+
+      <!-- TYPE -->
+
+      <div id="projectTypeGroup" class="formGroup">
+        <label for="projectType">Type</label>
+        <select id="projectType"></select>
+      </div>
+
+      <!-- RÉSEAUX SOCIAUX -->
+
+      <section id="socialSection" class="socialBox hidden">
+
+        <div class="socialTitle">
+          <i class="fa-solid fa-share-nodes"></i>
+          <strong>Promotion réseaux sociaux</strong>
+        </div>
+
+        <div class="notice">
+          Sélectionne la plateforme, puis le résultat recherché et la
+          quantité. Le budget affiché est une estimation de campagne ;
+          les résultats réels ne sont pas garantis.
+        </div>
+
+        <label class="help">Plateforme</label>
+
+        <div id="socialPlatforms" class="socialGrid"></div>
+
+        <br>
+
+        <label class="help">Objectif</label>
+
+        <div id="socialTypes" class="socialTypes">
+          <button type="button"
+                  class="socialType"
+                  data-social-type="followers">
+            👤<br>Abonnés
+          </button>
+
+          <button type="button"
+                  class="socialType"
+                  data-social-type="likes">
+            ❤️<br>Likes
+          </button>
+
+          <button type="button"
+                  class="socialType"
+                  data-social-type="comments">
+            💬<br>Commentaires
+          </button>
+
+          <button type="button"
+                  class="socialType"
+                  data-social-type="views">
+            👁️<br>Vues
+          </button>
+
+          <button type="button"
+                  class="socialType"
+                  data-social-type="shares">
+            🔄<br>Partages
+          </button>
+        </div>
+
+        <br>
+
+        <div class="formGroup">
+          <label id="socialQuantityLabel">
+            Quantité souhaitée
+          </label>
+
+          <input id="socialQuantity"
+                 type="number"
+                 min="1"
+                 step="1"
+                 placeholder="Ex : 10000">
+        </div>
+
+        <div class="formGroup">
+          <label for="projectLink">
+            Lien du compte / contenu
+          </label>
+
+          <input id="projectLink"
+                 type="url"
+                 placeholder="https://...">
+
+          <div class="help">
+            Compte, publication, vidéo, chaîne ou contenu concerné.
+          </div>
+        </div>
+
+        <div class="socialResult">
+
+          <div class="socialResultRow">
+            <span>Plateforme</span>
+            <strong id="socialSelectedPlatform">—</strong>
+          </div>
+
+          <div class="socialResultRow">
+            <span>Objectif</span>
+            <strong id="socialSelectedType">—</strong>
+          </div>
+
+          <div class="socialResultRow">
+            <span>Quantité</span>
+            <strong id="socialSelectedQuantity">0</strong>
+          </div>
+
+          <div class="socialPrice">
+            <span>Budget estimatif</span>
+            <strong id="socialEstimatedPrice">0 FC</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- OPTIONS DYNAMIQUES -->
+
+      <div id="dynamicOptions"></div>
+
+      <!-- COULEURS -->
+
+      <div id="colorOptions" class="formGroup hidden">
+
+        <label>Couleurs</label>
+
+        <div class="colorRow">
+
+          <div class="colorBox">
+            <label for="primaryColor">Principale</label>
+            <input id="primaryColor" type="color" value="#1685e8">
+          </div>
+
+          <div class="colorBox">
+            <label for="secondaryColor">Secondaire</label>
+            <input id="secondaryColor" type="color" value="#07111f">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LIEN CONTEXTUEL -->
+
+      <div id="projectLinkGroup"
+           class="formGroup hidden">
+
+        <label id="projectLinkLabel">
+          Référence
+        </label>
+
+        <input id="contextualLink"
+               type="url"
+               placeholder="https://...">
+
+        <div id="contextualLinkHelp" class="help"></div>
+      </div>
+
+      <!-- FICHIERS -->
+
+      <div id="fileGroup" class="formGroup">
+
+        <label id="fileLabel">
+          Fichiers de référence facultatifs
+        </label>
+
+        <div class="fileBox">
+
+          <input id="projectFiles"
+                 type="file"
+                 multiple>
+
+          <div id="fileHelp" class="help">
+            Tu peux envoyer des fichiers si tu en as.
+          </div>
+
+          <div id="fileList" class="help"></div>
+
+        </div>
+
+      </div>
+
+      <!-- DESCRIPTION -->
+
+      <div class="formGroup">
+        <label for="projectDescription">
+          Description / idée du projet
+        </label>
+
+        <textarea id="projectDescription"
+                  maxlength="5000"
+                  placeholder="Explique ce que tu veux obtenir..."></textarea>
+
+        <div class="help">
+          <span id="descriptionCount">0</span>/5000
+        </div>
+
+        <button id="aiHelp" class="aiBtn" type="button">
+          ✨ Améliorer mon idée avec l'IA
+        </button>
+
+        <div id="aiSuggestion" class="help"></div>
+      </div>
+
+      <!-- NOTES -->
+
+      <div class="formGroup">
+        <label for="projectNotes">
+          Notes supplémentaires
+        </label>
+
+        <textarea id="projectNotes"
+                  placeholder="Autres informations importantes..."></textarea>
+      </div>
+
+      <!-- RÉSUMÉ -->
+
+      <div class="summary">
+        <h3>Résumé de la commande</h3>
+        <pre id="projectSummary">Aucune information.</pre>
+      </div>
+
+      <!-- PRIX -->
+
+      <div class="priceBox">
+        <span>Prix estimatif</span>
+        <strong id="totalPrice">0 FC</strong>
+      </div>
+
+      <button id="submitOrder"
+              class="submitBtn"
+              type="button">
+        Commander ce service
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<script src="shop.js"></script>
+
+</body>
+</html>

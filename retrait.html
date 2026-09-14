@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Retrait - JASONBOT</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 18px;
+      min-height: 100vh;
+      background: #06101d;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .back {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: #12263c;
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #1683ff;
+    }
+
+    .card {
+      background: #0b1a2b;
+      border: 1px solid #1b3958;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    h2 {
+      margin: 0 0 15px;
+      font-size: 18px;
+    }
+
+    .description {
+      color: #91a5ba;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .balance {
+      background: #102940;
+      border: 1px solid #20517b;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .balance-label {
+      color: #91a5ba;
+      font-size: 13px;
+    }
+
+    .balance-value {
+      margin-top: 6px;
+      font-size: 29px;
+      font-weight: bold;
+    }
+
+    .notice {
+      padding: 13px;
+      margin: 16px 0;
+      border-left: 3px solid #1683ff;
+      background: #13253a;
+      border-radius: 7px;
+      color: #a9bbcd;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .method {
+      border: 1px solid #294966;
+      background: #071321;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .method-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .method-status {
+      margin-top: 6px;
+      color: #91a5ba;
+      font-size: 12px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #294966;
+      background: #071321;
+      color: #fff;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #1683ff;
+    }
+
+    select option {
+      background: #071321;
+      color: #fff;
+    }
+
+    .main-button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px;
+      background: #1683ff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 9px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .message.success {
+      display: block;
+      background: #123a28;
+      color: #83efad;
+    }
+
+    .message.error {
+      display: block;
+      background: #401c25;
+      color: #ffabb7;
+    }
+
+    .history-item {
+      border-bottom: 1px solid #20364d;
+      padding: 13px 0;
+    }
+
+    .history-item:last-child {
+      border-bottom: 0;
+    }
+
+    .history-title {
+      font-weight: bold;
+    }
+
+    .history-info {
+      color: #8ca0b4;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 5px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #3b3217;
+      color: #ffd66b;
+      font-size: 12px;
+    }
+
+    .empty {
+      color: #71879c;
+      text-align: center;
+      font-size: 14px;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="topbar">
+
+      <a href="dash.html" class="back">
+        ←
+      </a>
+
+      <div class="logo">
+        JASON<span>BOT</span>
+      </div>
+
+    </div>
+
+
+    <div class="balance">
+
+      <div class="balance-label">
+        Solde disponible
+      </div>
+
+      <div
+        id="balance"
+        class="balance-value"
+      >
+        0 FC
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h1>💸 Demande de retrait</h1>
+
+      <p class="description">
+        Cette page permet uniquement d'enregistrer
+        une demande de retrait de démonstration.
+        Aucune transaction financière réelle
+        n'est effectuée par cette page.
+      </p>
+
+      <div class="notice">
+        ℹ️ Toute demande doit être examinée et
+        validée par l'administration avant
+        d'être considérée comme traitée.
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>📱 Moyen de retrait</h2>
+
+      <div class="method">
+        <div class="method-title">
+          🟠 Orange Money
+        </div>
+        <div class="method-status">
+          Disponible pour les demandes
+        </div>
+      </div>
+
+      <div class="method">
+        <div class="method-title">
+          🔴 Airtel Money
+        </div>
+        <div class="method-status">
+          Disponible pour les demandes
+        </div>
+      </div>
+
+      <div class="method">
+        <div class="method-title">
+          🟢 M-Pesa
+        </div>
+        <div class="method-status">
+          Disponible pour les demandes
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>Informations</h2>
+
+      <form id="withdrawForm">
+
+        <div class="form-group">
+
+          <label for="withdrawAmount">
+            Montant demandé
+          </label>
+
+          <input
+            type="number"
+            id="withdrawAmount"
+            min="1"
+            step="1"
+            placeholder="Ex : 5 000"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="withdrawMethod">
+            Moyen de retrait
+          </label>
+
+          <select
+            id="withdrawMethod"
+            required
+          >
+
+            <option value="">
+              Sélectionner
+            </option>
+
+            <option value="Orange Money">
+              Orange Money
+            </option>
+
+            <option value="Airtel Money">
+              Airtel Money
+            </option>
+
+            <option value="M-Pesa">
+              M-Pesa
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="withdrawPhone">
+            Numéro de réception
+          </label>
+
+          <input
+            type="tel"
+            id="withdrawPhone"
+            placeholder="+243 8XX XXX XXX"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="main-button"
+        >
+          📤 Envoyer la demande
+        </button>
+
+
+        <div
+          id="withdrawMessage"
+          class="message"
+        ></div>
+
+      </form>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>📋 Mes demandes</h2>
+
+      <div id="withdrawHistory">
+
+        <div class="empty">
+          Aucune demande de retrait.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="retrait.js"></script>
+
+</body>
+</html>

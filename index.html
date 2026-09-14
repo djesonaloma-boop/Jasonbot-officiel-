@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JASONBOT AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #06101d;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 450px;
+      margin: 30px auto;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      color: #1683ff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #91a5ba;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #0b1a2b;
+      border: 1px solid #1b3958;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      border: 0;
+      border-radius: 9px;
+      background: #12263c;
+      color: #9db0c4;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: #1683ff;
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 0 0 8px;
+    }
+
+    .description {
+      text-align: center;
+      color: #8499ae;
+      font-size: 14px;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #294966;
+      background: #071321;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #1683ff;
+    }
+
+    .referral {
+      background: #09182a;
+      border: 1px solid #204564;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 18px 0;
+    }
+
+    .referral-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .referral-info {
+      color: #8499ae;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .qr-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .qr-btn {
+      border: 1px solid #2b5275;
+      background: #102940;
+      color: white;
+      padding: 12px 8px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .qr-btn:hover {
+      background: #163956;
+    }
+
+    .main-button {
+      width: 100%;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+      background: #1683ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .main-button:hover {
+      background: #0d70dc;
+    }
+
+    .forgot {
+      text-align: right;
+      color: #1683ff;
+      font-size: 13px;
+      margin: -5px 0 17px;
+      cursor: pointer;
+    }
+
+    .message {
+      display: none;
+      padding: 11px;
+      margin-top: 14px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .message.error {
+      display: block;
+      background: #401c25;
+      color: #ffabb7;
+    }
+
+    .message.success {
+      display: block;
+      background: #123a28;
+      color: #83efad;
+    }
+
+    .security {
+      text-align: center;
+      color: #657b91;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* QR SCANNER */
+
+    .scanner-box {
+      margin-top: 15px;
+      padding: 12px;
+      background: #071321;
+      border: 1px solid #294966;
+      border-radius: 12px;
+    }
+
+    .scanner-title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #qrVideo {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    #qrCanvas {
+      display: none;
+    }
+
+    .scanner-status {
+      text-align: center;
+      color: #91a5ba;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+
+    .stop-camera {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px;
+      background: #421c25;
+      color: #ffabb7;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    @media (max-width: 400px) {
+      .qr-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">
+      JASON<span>BOT</span>
+    </div>
+
+    <div class="subtitle">
+      Votre espace client IA & numérique
+    </div>
+
+    <div class="card">
+
+      <!-- ONGLETS -->
+
+      <div class="tabs">
+
+        <button
+          type="button"
+          id="registerTab"
+          class="tab active"
+        >
+          Créer un compte
+        </button>
+
+        <button
+          type="button"
+          id="loginTab"
+          class="tab"
+        >
+          Se connecter
+        </button>
+
+      </div>
+
+
+      <!-- ============================= -->
+      <!-- INSCRIPTION -->
+      <!-- ============================= -->
+
+      <section id="registerSection">
+
+        <h2>Créer votre compte</h2>
+
+        <p class="description">
+          Remplissez vos informations pour accéder
+          à votre espace JASONBOT.
+        </p>
+
+        <form id="registerForm">
+
+          <div class="form-group">
+
+            <label for="name">
+              👤 Nom complet
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Ex : Djeson Aloma"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="email">
+              📧 Gmail / E-mail
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="exemple@gmail.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              📱 Numéro de téléphone
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="+243 8XX XXX XXX"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="password">
+              🔐 Mot de passe
+            </label>
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Minimum 6 caractères"
+              minlength="6"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="confirmPassword">
+              🔐 Confirmer le mot de passe
+            </label>
+
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirmer le mot de passe"
+              minlength="6"
+              required
+            >
+
+          </div>
+
+
+          <!-- ============================= -->
+          <!-- PARRAINAGE -->
+          <!-- ============================= -->
+
+          <div class="referral">
+
+            <div class="referral-title">
+              🤝 Code de parrainage
+            </div>
+
+            <div class="referral-info">
+              Facultatif. Entrez le code d'un autre
+              client ou utilisez son QR code.
+              <br><br>
+              Le propriétaire du code reçoit
+              <strong>+20 points</strong>.
+            </div>
+
+
+            <input
+              type="text"
+              id="referralCode"
+              placeholder="Ex : JASON-7K4P9X"
+              maxlength="12"
+              autocomplete="off"
+              style="text-transform:uppercase;"
+            >
+
+
+            <!-- BOUTONS QR -->
+
+            <div class="qr-buttons">
+
+              <button
+                type="button"
+                class="qr-btn"
+                id="scanQR"
+              >
+                📷 Scanner QR
+              </button>
+
+              <button
+                type="button"
+                class="qr-btn"
+                id="importQR"
+              >
+                🖼️ Importer une photo
+              </button>
+
+            </div>
+
+
+            <!-- INPUT PHOTO CACHÉ -->
+
+            <input
+              type="file"
+              id="qrImageInput"
+              class="file-input"
+              accept="image/*"
+            >
+
+
+            <!-- SCANNER CAMÉRA -->
+
+            <div
+              id="scannerBox"
+              class="scanner-box hidden"
+            >
+
+              <div class="scanner-title">
+                📷 Scanner le code QR
+              </div>
+
+              <video
+                id="qrVideo"
+                playsinline
+                muted
+              ></video>
+
+              <canvas
+                id="qrCanvas"
+              ></canvas>
+
+              <div
+                id="scannerStatus"
+                class="scanner-status"
+              >
+                Recherche du QR code...
+              </div>
+
+              <button
+                type="button"
+                id="stopCamera"
+                class="stop-camera"
+              >
+                ✕ Fermer la caméra
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="main-button"
+          >
+            Créer mon compte
+          </button>
+
+
+          <div
+            id="registerMessage"
+            class="message"
+          ></div>
+
+        </form>
+
+      </section>
+
+
+      <!-- ============================= -->
+      <!-- CONNEXION -->
+      <!-- ============================= -->
+
+      <section
+        id="loginSection"
+        class="hidden"
+      >
+
+        <h2>Bienvenue</h2>
+
+        <p class="description">
+          Connectez-vous à votre espace JASONBOT.
+        </p>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label for="loginEmail">
+              📧 Gmail / E-mail
+            </label>
+
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="exemple@gmail.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="loginPassword">
+              🔐 Mot de passe
+            </label>
+
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Votre mot de passe"
+              required
+            >
+
+          </div>
+
+
+          <div
+            class="forgot"
+            id="forgotPassword"
+          >
+            Mot de passe oublié ?
+          </div>
+
+
+          <button
+            type="submit"
+            class="main-button"
+          >
+            Se connecter
+          </button>
+
+
+          <div
+            id="loginMessage"
+            class="message"
+          ></div>
+
+        </form>
+
+      </section>
+
+
+      <div class="security">
+        🛡️ JASONBOT AI • Disponible 24H/24 • 7J/7
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Bibliothèque QR -->
+
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+
+  <!-- Ton JavaScript -->
+
+  <script src="index.js"></script>
+
+</body>
+</html>

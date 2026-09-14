@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #06111d;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+  height: 70px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #081827;
+  border-bottom: 1px solid #193650;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #2589ff;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  background: #102940;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.container {
+  width: 94%;
+  max-width: 1050px;
+  margin: auto;
+  padding: 45px 0 70px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.support-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: #9badbe;
+  line-height: 1.6;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  );
+  gap: 20px;
+}
+
+.support-card {
+  background: #0a1a2a;
+  border: 1px solid #1c3b56;
+  border-radius: 17px;
+  padding: 25px;
+}
+
+.card-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.support-card h2 {
+  margin-bottom: 8px;
+}
+
+.support-card > p {
+  color: #91a5b8;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: #b8c6d3;
+  margin: 15px 0 7px;
+}
+
+select,
+textarea {
+  width: 100%;
+  background: #061522;
+  border: 1px solid #29465f;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  margin-top: 15px;
+  border: 0;
+  border-radius: 9px;
+  padding: 13px;
+  background: #2589ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#aiSupport {
+  background: #5138c9;
+}
+
+.response {
+  margin-top: 15px;
+  padding: 15px;
+  background: #071522;
+  border: 1px solid #28455e;
+  border-radius: 10px;
+  color: #aebdca;
+  line-height: 1.6;
+}
+
+.tickets {
+  margin-top: 40px;
+}
+
+.section-title {
+  margin-bottom: 18px;
+}
+
+.section-title p {
+  color: #8398ab;
+  margin-top: 5px;
+}
+
+.ticket {
+  background: #0a1a2a;
+  border: 1px solid #1c3b56;
+  border-radius: 13px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.ticket p {
+  color: #a7b7c5;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.ticket small {
+  color: #71879a;
+}
+
+.status {
+  background: #17334b;
+  color: #4da1ff;
+  padding: 5px 9px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.empty {
+  padding: 35px;
+  text-align: center;
+  color: #8196a9;
+  background: #0a1a2a;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

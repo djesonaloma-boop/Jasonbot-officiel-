@@ -1,0 +1,1218 @@
+/* =====================================================
+   JASONBOT AI
+   VIP.CSS
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-height: 100vh;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #142b55 0,
+      #081426 38%,
+      #050b16 100%
+    );
+
+  color: #ffffff;
+  padding-bottom: 40px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.vip-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 72px;
+  padding: 12px 16px;
+
+  background: rgba(5, 12, 25, 0.94);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+
+.back-button {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 13px;
+
+  font-size: 22px;
+
+  transition: 0.2s;
+}
+
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+
+.header-title {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.header-title > span {
+  font-size: 28px;
+}
+
+
+.header-title h1 {
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+
+.header-title p {
+  margin-top: 3px;
+
+  color: #91a3c2;
+
+  font-size: 12px;
+}
+
+
+.notification-button {
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: white;
+
+  font-size: 19px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+  width: min(1180px, calc(100% - 28px));
+  margin: auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.vip-hero {
+  text-align: center;
+
+  padding: 48px 16px 35px;
+}
+
+
+.hero-icon {
+  width: 78px;
+  height: 78px;
+
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 210, 70, 0.2),
+      rgba(50, 130, 255, 0.14)
+    );
+
+  border:
+    1px solid rgba(255, 210, 70, 0.25);
+
+  font-size: 39px;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+
+.hero-badge {
+  display: inline-block;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: rgba(70, 140, 255, 0.12);
+
+  border:
+    1px solid rgba(80, 150, 255, 0.25);
+
+  color: #79b7ff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+.vip-hero h2 {
+  margin-top: 14px;
+
+  font-size: clamp(28px, 6vw, 44px);
+
+  line-height: 1.1;
+}
+
+
+.vip-hero p {
+  max-width: 650px;
+
+  margin: 14px auto 0;
+
+  color: #aab8d0;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   ACCOUNT CARD
+===================================================== */
+
+.account-card {
+  display: flex;
+  align-items: center;
+
+  max-width: 620px;
+
+  margin: 0 auto 35px;
+
+  padding: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 52, 100, 0.72),
+      rgba(10, 24, 48, 0.86)
+    );
+
+  border:
+    1px solid rgba(110, 165, 255, 0.16);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+
+.account-item {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.account-item > span {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  font-size: 20px;
+}
+
+
+.account-item small {
+  display: block;
+
+  color: #8193b0;
+
+  font-size: 11px;
+
+  margin-bottom: 3px;
+}
+
+
+.account-item strong {
+  font-size: 16px;
+}
+
+
+.account-divider {
+  width: 1px;
+  height: 38px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  margin: 0 15px;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.vip-section {
+  padding-bottom: 35px;
+}
+
+
+.section-heading {
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+
+.section-heading h2 {
+  font-size: 25px;
+}
+
+
+.section-heading p {
+  margin-top: 7px;
+
+  color: #8497b5;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   VIP GRID
+===================================================== */
+
+.vip-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+
+/* =====================================================
+   VIP CARD
+===================================================== */
+
+.vip-card {
+  position: relative;
+
+  padding: 24px 20px;
+
+  min-height: 475px;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(19, 38, 72, 0.94),
+      rgba(7, 16, 30, 0.96)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 23px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.vip-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: #60728f;
+}
+
+
+.vip-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(100, 160, 255, 0.3);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   CARD COLORS
+===================================================== */
+
+.vip-card.bronze::before {
+  background: #b8753c;
+}
+
+
+.vip-card.silver::before {
+  background: #b9c4d1;
+}
+
+
+.vip-card.gold::before {
+  background: #f1c44c;
+}
+
+
+.vip-card.diamond::before {
+  background: #69c9ff;
+}
+
+
+/* =====================================================
+   POPULAIRE
+===================================================== */
+
+.popular {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(241, 196, 76, 0.13);
+
+  color: #ffd86a;
+
+  border:
+    1px solid rgba(241, 196, 76, 0.2);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   VIP ICON
+===================================================== */
+
+.vip-icon {
+  width: 57px;
+  height: 57px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 16px;
+
+  border-radius: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  font-size: 29px;
+}
+
+
+.vip-level {
+  color: #7890b1;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.vip-card h3 {
+  margin-top: 6px;
+
+  font-size: 21px;
+}
+
+
+.vip-price {
+  margin-top: 13px;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  color: #ffffff;
+}
+
+
+.vip-card p {
+  margin-top: 9px;
+
+  min-height: 48px;
+
+  color: #899bb7;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.vip-card ul {
+  list-style: none;
+
+  margin: 18px 0;
+
+  display: grid;
+
+  gap: 10px;
+}
+
+
+.vip-card li {
+  color: #c2cee0;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+.vip-card li::first-letter {
+  color: #70aaff;
+}
+
+
+/* =====================================================
+   CHOISIR
+===================================================== */
+
+.choose-vip {
+  width: 100%;
+
+  margin-top: auto;
+
+  padding: 13px 15px;
+
+  border: 0;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1769df,
+      #2456ad
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.choose-vip:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.12);
+}
+
+
+.vip-card.bronze .choose-vip {
+  background:
+    linear-gradient(
+      135deg,
+      #a86636,
+      #7f4928
+    );
+}
+
+
+.vip-card.gold .choose-vip {
+  background:
+    linear-gradient(
+      135deg,
+      #d6a82f,
+      #9c7012
+    );
+}
+
+
+.vip-card.diamond .choose-vip {
+  background:
+    linear-gradient(
+      135deg,
+      #1599df,
+      #416fd2
+    );
+}
+
+
+/* =====================================================
+   FIDELITY
+===================================================== */
+
+.fidelity-card {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin: 10px auto 25px;
+
+  padding: 24px;
+
+  max-width: 760px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(45, 83, 150, 0.65),
+      rgba(16, 32, 60, 0.8)
+    );
+
+  border:
+    1px solid rgba(94, 154, 255, 0.2);
+
+  border-radius: 22px;
+}
+
+
+.fidelity-icon {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 204, 67, 0.12);
+
+  font-size: 28px;
+}
+
+
+.fidelity-card span {
+  color: #78b3ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.fidelity-card h2 {
+  margin-top: 5px;
+
+  font-size: 19px;
+}
+
+
+.fidelity-card p {
+  margin-top: 5px;
+
+  color: #8fa2c0;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info-card {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  padding: 23px;
+
+  background:
+    rgba(9, 20, 38, 0.8);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 20px;
+}
+
+
+.info-card h3 {
+  margin-bottom: 16px;
+
+  font-size: 16px;
+}
+
+
+.info-card p {
+  padding: 10px 0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+
+  color: #a5b4c9;
+
+  font-size: 13px;
+}
+
+
+.info-card p:last-child {
+  border-bottom: 0;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 18px;
+}
+
+
+.modal.hidden {
+  display: none;
+}
+
+
+.modal-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.modal-box {
+  position: relative;
+
+  width: min(440px, 100%);
+
+  padding: 30px 24px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      160deg,
+      #13294d,
+      #071120
+    );
+
+  border:
+    1px solid rgba(108, 167, 255, 0.2);
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.5);
+
+  animation:
+    modalIn 0.22s ease;
+}
+
+
+@keyframes modalIn {
+
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+.modal-close {
+  position: absolute;
+
+  top: 12px;
+  right: 13px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+.modal-icon {
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 5px auto 15px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  font-size: 34px;
+}
+
+
+.modal-box > span {
+  color: #77b3ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.modal-box h2 {
+  margin-top: 7px;
+
+  font-size: 25px;
+}
+
+
+.modal-box > strong {
+  display: block;
+
+  margin-top: 9px;
+
+  font-size: 26px;
+}
+
+
+.modal-box > p {
+  margin: 10px auto 18px;
+
+  max-width: 320px;
+
+  color: #91a3bf;
+
+  font-size: 13px;
+
+  line-height: 1.55;
+}
+
+
+/* =====================================================
+   MODAL BALANCE
+===================================================== */
+
+.modal-balance {
+  padding: 14px;
+
+  margin-bottom: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border-radius: 14px;
+}
+
+
+.modal-balance span {
+  display: block;
+
+  color: #8194b2;
+
+  font-size: 11px;
+}
+
+
+.modal-balance strong {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 18px;
+}
+
+
+/* =====================================================
+   MODAL ACTIONS
+===================================================== */
+
+.modal-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+
+.modal-actions button {
+  padding: 13px;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+#cancelVip {
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+
+#confirmVip {
+  background:
+    linear-gradient(
+      135deg,
+      #1769df,
+      #2b55a5
+    );
+
+  color: white;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 25px;
+
+  z-index: 2000;
+
+  transform:
+    translate(-50%, 30px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  width: min(92%, 420px);
+
+  padding: 14px 17px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background:
+    #14243e;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  font-size: 13px;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.4);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.toast.show {
+  opacity: 1;
+
+  transform:
+    translate(-50%, 0);
+}
+
+
+.toast.success {
+  border-color:
+    rgba(56, 200, 125, 0.4);
+}
+
+
+.toast.error {
+  border-color:
+    rgba(255, 85, 85, 0.4);
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .vip-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  body {
+    padding-bottom: 20px;
+  }
+
+
+  main {
+    width:
+      min(100% - 20px, 600px);
+  }
+
+
+  .vip-header {
+    padding:
+      10px 11px;
+  }
+
+
+  .vip-hero {
+    padding:
+      35px 8px 25px;
+  }
+
+
+  .vip-hero h2 {
+    font-size: 29px;
+  }
+
+
+  .vip-hero p {
+    font-size: 13px;
+  }
+
+
+  .account-card {
+    margin-bottom: 28px;
+  }
+
+
+  .account-item > span {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .account-item strong {
+    font-size: 14px;
+  }
+
+
+  .account-divider {
+    margin: 0 9px;
+  }
+
+
+  .vip-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+
+  .vip-card {
+    min-height: auto;
+
+    padding: 22px 18px;
+  }
+
+
+  .vip-card p {
+    min-height: auto;
+  }
+
+
+  .fidelity-card {
+    align-items: flex-start;
+
+    padding: 19px;
+
+    gap: 13px;
+  }
+
+
+  .fidelity-icon {
+    width: 52px;
+    height: 52px;
+
+    font-size: 23px;
+  }
+
+
+  .fidelity-card h2 {
+    font-size: 17px;
+  }
+
+
+  .modal-box {
+    padding:
+      27px 18px;
+  }
+
+}
+
+
+/* =====================================================
+   PETITS ÉCRANS
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .header-title h1 {
+    font-size: 15px;
+  }
+
+
+  .header-title p {
+    font-size: 10px;
+  }
+
+
+  .notification-button,
+  .back-button {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .vip-price {
+    font-size: 22px;
+  }
+
+
+  .account-card {
+    padding: 13px;
+  }
+
+}
